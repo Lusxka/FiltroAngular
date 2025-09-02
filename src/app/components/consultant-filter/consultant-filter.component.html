@@ -9,6 +9,7 @@
       [value]="selectedFilter"
       (change)="onFilterChange($event)"
       class="block w-full px-4 py-2 pr-8 rounded-full bg-white border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+      style="appearance: none; -webkit-appearance: none; -moz-appearance: none; background-image: none;"
     >
       @for (specialization of specializations; track specialization) {
         <option [value]="specialization">{{ specialization }}</option>
