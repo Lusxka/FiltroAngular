@@ -1,0 +1,31 @@
+/* Estilos para a lista de consultores */
+:host {
+  display: block;
+}
+
+.consultant-grid {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade para a grade */
+@media (max-width: 640px) {
+  .grid {
+    gap: 1rem;
+  }
+}
+
+/* Mensagem de "nenhum resultado" */
+.no-results {
+  min-height: 10rem;
+}

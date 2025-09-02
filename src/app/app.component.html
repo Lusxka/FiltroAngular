@@ -1,0 +1,21 @@
+<div class="bg-gray-100 min-h-screen p-4 sm:p-6 lg:p-8 font-sans">
+  <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-xl p-6 sm:p-8">
+    <!-- Título principal -->
+    <h1 class="text-4xl font-extrabold text-center text-gray-900 mb-2">Consultores da Empresa</h1>
+    <p class="text-center text-gray-600 mb-8">
+      Conheça nossa equipe de especialistas e encontre o profissional ideal para seu projeto.
+    </p>
+
+    <!-- Componente de filtro -->
+    <app-consultant-filter
+      [specializations]="specializations()"
+      [selectedFilter]="selectedFilter()"
+      (filterChange)="onFilterChange($event)">
+    </app-consultant-filter>
+
+    <!-- Lista de consultores -->
+    <app-consultant-list
+      [consultants]="filteredConsultants()">
+    </app-consultant-list>
+  </div>
+</div>

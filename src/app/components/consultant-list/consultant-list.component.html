@@ -1,0 +1,14 @@
+<!-- Grade de consultores -->
+@if (consultants.length > 0) {
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    @for (consultant of consultants; track consultant.name) {
+      <app-consultant-card [consultant]="consultant"></app-consultant-card>
+    }
+  </div>
+} @else {
+  <div class="flex justify-center items-center h-40">
+    <p class="text-lg text-gray-500 italic">
+      Nenhum consultor encontrado para a especialização selecionada.
+    </p>
+  </div>
+}

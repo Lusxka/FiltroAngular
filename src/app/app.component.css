@@ -1,0 +1,9 @@
+/* Estilos globais do componente principal */
+:host {
+  display: block;
+}
+
+/* Customizações específicas se necessário */
+.main-container {
+  transition: all 0.3s ease;
+}
