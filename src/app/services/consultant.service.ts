@@ -9,7 +9,7 @@ export class ConsultantService {
   // Dados fictícios dos consultores
   private consultants = signal<Consultant[]>([
     { 
-      name: 'Ana Silva', 
+      name: 'Lucas Ryan', 
       specialization: 'TI', 
       bio: 'Especialista em desenvolvimento web e mobile, com foco em frameworks front-end como Angular e React.' 
     },
