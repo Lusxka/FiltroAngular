@@ -1,57 +1,60 @@
-🚀 ConsultHub: Sistema de Gestão de Consultores (Angular)
-Este projeto é uma aplicação web de gestão de consultores desenvolvida em Angular 17+ (com Componentes Standalone) e estilizada usando Tailwind CSS. O foco é na organização do código, reatividade com Signals e um design responsivo.
-
-🛠️ Tecnologias Utilizadas
-Framework: Angular (v17+)
-
-Estilização: Tailwind CSS
-
-Gerenciamento de Estado: Signals (signal() e computed())
-
-Rotas: @angular/router
-
-Formulários: Reactive Forms
-
 💻 Estrutura e Execução
-Pré-requisitos
-Certifique-se de ter o Node.js e o Angular CLI instalados globalmente.
+🔹 Pré-requisitos
 
-Bash
+Certifique-se de ter Node.js e Angular CLI instalados globalmente:
 
-# Verificar Node.js
+# Verificar versão do Node.js
 node -v
 
 # Instalar Angular CLI (se necessário)
 npm install -g @angular/cli
-1. Instalação de Dependências
-Navegue até a pasta raiz do projeto e execute:
 
-Bash
-
+🔹 1. Instalação de Dependências
+# Na pasta raiz do projeto Angular
 npm install
-2. Execução do Projeto
-Utilize o comando padrão do Angular CLI. A aplicação estará disponível em http://localhost:4200/.
 
-Bash
-
+🔹 2. Execução do Projeto
+# Inicia o servidor de desenvolvimento
 ng serve
+
+
+O projeto estará acessível em: http://localhost:4200/
+ 🌐
+
 🔑 Credenciais de Acesso (Mock)
-A aplicação utiliza um serviço de autenticação de mock para simular diferentes papéis de usuário.
+
+A aplicação utiliza um serviço de autenticação mock para alternar entre papéis:
 
 Papel	E-mail	Senha	Acesso
-Administrador	admin@empresa.com	admin123	Criação, Edição e Exclusão de Consultores.
-Usuário Comum	user@empresa.com	user123	Apenas visualização e filtro de consultores.
-
-Exportar para as Planilhas
+Administrador	admin@empresa.com
+	admin123	Criação, Edição e Exclusão de Consultores
+Usuário Comum	user@empresa.com
+	user123	Apenas Visualização e Filtro de Consultores
 🗺️ Rotas da Aplicação
 Rota	Componente	Descrição
-/login	LoginComponent	Tela inicial de acesso.
-/consultants	ConsultantsPageComponent	Listagem e filtro de todos os consultores.
-/consultants/new	ConsultantFormComponent	Cadastro de novo consultor (Acesso Admin).
-/consultants/edit/:id	ConsultantFormComponent	Edição de consultor existente (Acesso Admin).
-/about	AboutComponent	Informações sobre a empresa Consulthub.
-/**	(Redirecionamento)	Qualquer rota inválida é redirecionada.
+/login	LoginComponent	Tela inicial de acesso
+/consultants	ConsultantsPageComponent	Listagem e filtro de consultores
+/consultants/new	ConsultantFormComponent	Cadastro de novo consultor (Admin)
+/consultants/edit/:id	ConsultantFormComponent	Edição de consultor existente (Admin)
+/about	AboutComponent	Informações sobre a empresa ConsultHub
+/**	(Redirecionamento)	Qualquer rota inválida é redirecionada
+📄 Componentes Organizados
 
-Exportar para as Planilhas
-📄 Componentes Organizados (Boas Práticas)
-Todos os componentes principais estão organizados em arquivos separados (.ts, .html, .css) para facilitar a manutenção e escalabilidade.
+Os principais componentes estão organizados em arquivos separados (.ts, .html, .css) seguindo boas práticas:
+
+AboutComponent
+
+ConsultantCardComponent
+
+ConsultantFormComponent
+
+ConsultantFilterComponent
+
+ConsultantsPageComponent
+
+HeaderComponent
+
+LoginComponent
+
+✨ Obrigado por conferir este projeto!
+Se gostou, não esqueça de deixar uma ⭐ no repositório! 🚀
