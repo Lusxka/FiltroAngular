@@ -1,59 +1,124 @@
-# Consultores
+🚀 ConsultHub: Sistema de Gestão de Consultores (Angular)
+Este é um projeto de aplicação web desenvolvido em Angular 17+ utilizando Componentes Standalone e Tailwind CSS para gestão e listagem de consultores. O foco é na organização do código, reatividade com Signals e um design responsivo.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.1.
+🛠️ Tecnologias Utilizadas
+Framework: Angular (v17+)
 
-## Development server
+Estilização: Tailwind CSS (configurado para a compilação via ambiente de desenvolvimento)
 
-To start a local development server, run:
+Gerenciamento de Estado: Signals (signal() e computed())
 
-```bash
+Rotas: @angular/router
+
+Formulários: Reactive Forms
+
+💻 Estrutura e Execução
+Pré-requisitos
+Certifique-se de ter o Node.js e o Angular CLI instalados globalmente em sua máquina.
+
+# Verificar Node.js
+node -v
+
+# Instalar Angular CLI (se necessário)
+npm install -g @angular/cli
+
+1. Instalação de Dependências
+Navegue até a pasta raiz do projeto e instale as dependências.
+
+# Na pasta raiz do projeto Angular
+npm install
+
+2. Execução do Projeto
+Utilize o comando padrão do Angular CLI para iniciar o servidor de desenvolvimento. O aplicativo estará acessível em http://localhost:4200/.
+
+# Inicia o servidor de desenvolvimento
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+🔑 Credenciais de Acesso (Mock)
+A aplicação utiliza um serviço de autenticação de mock (simulação) para alternar entre os papéis de "Administrador" e "Usuário Comum".
 
-## Code scaffolding
+Papel
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+E-mail
 
-```bash
-ng generate component component-name
-```
+Senha
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Acesso
 
-```bash
-ng generate --help
-```
+Administrador
 
-## Building
+admin@empresa.com
 
-To build the project run:
+admin123
 
-```bash
-ng build
-```
+Criação, Edição e Exclusão de Consultores.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Usuário Comum
 
-## Running unit tests
+user@empresa.com
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+user123
 
-```bash
-ng test
-```
+Apenas visualização e filtro de consultores.
 
-## Running end-to-end tests
+🗺️ Rotas da Aplicação
+Rota
 
-For end-to-end (e2e) testing, run:
+Componente
 
-```bash
-ng e2e
-```
+Descrição
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+/login
 
-## Additional Resources
+LoginComponent
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Tela inicial de acesso.
+
+/consultants
+
+ConsultantsPageComponent
+
+Listagem e filtro de todos os consultores.
+
+/consultants/new
+
+ConsultantFormComponent
+
+Cadastro de novo consultor (Acesso Admin).
+
+/consultants/edit/:id
+
+ConsultantFormComponent
+
+Edição de consultor existente (Acesso Admin).
+
+/about
+
+AboutComponent
+
+Informações sobre a empresa Consulthub.
+
+/**
+
+(Redirecionamento)
+
+Qualquer rota inválida é redirecionada.
+
+📄 Componentes Organizados
+Todos os componentes principais foram organizados em arquivos separados (.ts, .html, .css) seguindo as boas práticas para facilitar a manutenção:
+
+AboutComponent
+
+ConsultantCardComponent
+
+ConsultantFormComponent
+
+ConsultantFilterComponent
+
+ConsultantsPageComponent
+
+HeaderComponent
+
+LoginComponent
+
+Agradecemos o seu tempo e análise.
