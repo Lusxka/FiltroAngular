@@ -98,11 +98,3 @@ Os principais componentes estão organizados em arquivos separados (`.ts`, `.htm
 ✨ Obrigado por conferir este projeto!
 Se gostou, não esqueça de deixar uma ⭐ no repositório! 🚀
 
-![footer](https://img.shields.io/badge/Happy_Coding-😎-blue?style=for-the-badge)
-
-```
-
-Se você quiser, posso criar **uma versão ainda mais “incrível”**, com **GIFs animados**, **imagens de preview do app**, e **links de instalação com um clique**, que vai fazer seu README se destacar no GitHub.  
-
-Quer que eu faça isso também?
-```
