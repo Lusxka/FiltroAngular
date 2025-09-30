@@ -1,12 +1,12 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
 import { provideRouter } from '@angular/router';
-import { importProvidersFrom } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { provideZoneChangeDetection } from '@angular/core';
+import { routes } from './app/app.routes';
 
 bootstrapApplication(AppComponent, {
   providers: [
-    importProvidersFrom(CommonModule),
-    // Adicione outros providers conforme necessário
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(routes)
   ]
 }).catch(err => console.error(err));

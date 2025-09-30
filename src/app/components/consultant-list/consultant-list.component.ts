@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Consultant } from '../../interfaces/consultant.interface';
 import { ConsultantCardComponent } from '../consultant-card/consultant-card.component';
@@ -13,4 +13,15 @@ import { ConsultantCardComponent } from '../consultant-card/consultant-card.comp
 })
 export class ConsultantListComponent {
   @Input() consultants: Consultant[] = [];
+  @Input() isAdmin = false;
+  @Output() edit = new EventEmitter<string>();
+  @Output() delete = new EventEmitter<string>();
+
+  onEdit(id: string): void {
+    this.edit.emit(id);
+  }
+
+  onDelete(id: string): void {
+    this.delete.emit(id);
+  }
 }

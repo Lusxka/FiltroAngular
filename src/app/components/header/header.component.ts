@@ -1,0 +1,89 @@
+// src/app/components/header/header.component.ts
+import { Component, computed } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+
+@Component({
+  selector: 'app-header',
+  standalone: true,
+  imports: [CommonModule, RouterLink, RouterLinkActive],
+  template: `
+    <header class="bg-white shadow-md">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <span class="text-2xl font-bold text-blue-600">ConsultHub</span>
+          </div>
+
+          <!-- Menu Desktop -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              routerLink="/consultants"
+              routerLinkActive="text-blue-600 font-semibold"
+              class="text-gray-700 hover:text-blue-600 transition"
+            >
+              Consultores
+            </a>
+            <a
+              routerLink="/about"
+              routerLinkActive="text-blue-600 font-semibold"
+              class="text-gray-700 hover:text-blue-600 transition"
+            >
+              Sobre
+            </a>
+          </div>
+
+          <!-- User Info & Logout -->
+          <div class="flex items-center space-x-4">
+            <div class="hidden sm:block text-right">
+              <p class="text-sm font-medium text-gray-900">{{ user()?.name }}</p>
+              <p class="text-xs text-gray-500">
+                {{ user()?.role === 'admin' ? 'Administrador' : 'Usuário' }}
+              </p>
+            </div>
+            <button
+              (click)="onLogout()"
+              class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition font-medium"
+            >
+              Sair
+            </button>
+          </div>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div class="md:hidden pb-4 flex gap-4">
+          <a
+            routerLink="/consultants"
+            routerLinkActive="text-blue-600 font-semibold"
+            class="text-gray-700 hover:text-blue-600 transition"
+          >
+            Consultores
+          </a>
+          <a
+            routerLink="/about"
+            routerLinkActive="text-blue-600 font-semibold"
+            class="text-gray-700 hover:text-blue-600 transition"
+          >
+            Sobre
+          </a>
+        </div>
+      </nav>
+    </header>
+  `,
+  styles: [`
+    :host {
+      display: block;
+    }
+  `]
+})
+export class HeaderComponent {
+  user = computed(() => this.authService.user());
+
+  constructor(private authService: AuthService) {}
+
+  onLogout(): void {
+    this.authService.logout();
+  }
+}

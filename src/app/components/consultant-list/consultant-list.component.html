@@ -1,8 +1,14 @@
+<!-- src/app/components/consultant-list/consultant-list.component.html -->
 <!-- Grade de consultores -->
 @if (consultants.length > 0) {
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    @for (consultant of consultants; track consultant.name) {
-      <app-consultant-card [consultant]="consultant"></app-consultant-card>
+    @for (consultant of consultants; track consultant.id) {
+      <app-consultant-card 
+        [consultant]="consultant"
+        [isAdmin]="isAdmin"
+        (edit)="onEdit($event)"
+        (delete)="onDelete($event)">
+      </app-consultant-card>
     }
   </div>
 } @else {

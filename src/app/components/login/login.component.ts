@@ -1,0 +1,113 @@
+import { Component, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
+
+@Component({
+  selector: 'app-login',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  template: `
+    <div class="min-h-screen bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center p-4">
+      <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
+        <div class="text-center mb-8">
+          <h1 class="text-3xl font-bold text-gray-900 mb-2">Bem-vindo!</h1>
+          <p class="text-gray-600">Faça login para acessar o sistema</p>
+        </div>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-6">
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+              E-mail
+            </label>
+            <input
+              id="email"
+              type="email"
+              formControlName="email"
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+              placeholder="seu@email.com"
+            />
+            @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
+              <p class="text-red-500 text-sm mt-1">E-mail inválido</p>
+            }
+          </div>
+
+          <div>
+            <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
+              Senha
+            </label>
+            <input
+              id="password"
+              type="password"
+              formControlName="password"
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+              placeholder="••••••••"
+            />
+            @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+              <p class="text-red-500 text-sm mt-1">Senha é obrigatória</p>
+            }
+          </div>
+
+          @if (errorMessage()) {
+            <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+              {{ errorMessage() }}
+            </div>
+          }
+
+          <button
+            type="submit"
+            [disabled]="loginForm.invalid"
+            class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition"
+          >
+            Entrar
+          </button>
+        </form>
+
+        <div class="mt-8 pt-6 border-t border-gray-200">
+          <p class="text-sm text-gray-600 text-center mb-3">Credenciais de teste:</p>
+          <div class="space-y-2 text-xs">
+            <div class="bg-blue-50 p-3 rounded-lg">
+              <p class="font-semibold text-blue-900">Administrador:</p>
+              <p class="text-blue-700">admin@empresa.com / admin123</p>
+            </div>
+            <div class="bg-green-50 p-3 rounded-lg">
+              <p class="font-semibold text-green-900">Usuário Comum:</p>
+              <p class="text-green-700">user@empresa.com / user123</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `,
+  styles: [`
+    :host {
+      display: block;
+    }
+  `]
+})
+export class LoginComponent {
+  loginForm: FormGroup;
+  errorMessage = signal('');
+
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService
+  ) {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
+    });
+  }
+
+  onSubmit(): void {
+    if (this.loginForm.valid) {
+      const { email, password } = this.loginForm.value;
+      const success = this.authService.login(email, password);
+      
+      if (!success) {
+        this.errorMessage.set('E-mail ou senha inválidos');
+        this.loginForm.patchValue({ password: '' });
+      }
+    }
+  }
+}
