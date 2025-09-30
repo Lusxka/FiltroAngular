@@ -1,10 +1,10 @@
 🚀 ConsultHub: Sistema de Gestão de Consultores (Angular)
-Este é um projeto de aplicação web desenvolvido em Angular 17+ utilizando Componentes Standalone e Tailwind CSS para gestão e listagem de consultores. O foco é na organização do código, reatividade com Signals e um design responsivo.
+Este projeto é uma aplicação web de gestão de consultores desenvolvida em Angular 17+ (com Componentes Standalone) e estilizada usando Tailwind CSS. O foco é na organização do código, reatividade com Signals e um design responsivo.
 
 🛠️ Tecnologias Utilizadas
 Framework: Angular (v17+)
 
-Estilização: Tailwind CSS (configurado para a compilação via ambiente de desenvolvimento)
+Estilização: Tailwind CSS
 
 Gerenciamento de Estado: Signals (signal() e computed())
 
@@ -14,7 +14,7 @@ Formulários: Reactive Forms
 
 💻 Estrutura e Execução
 Pré-requisitos
-Certifique-se de ter o Node.js e o Angular CLI instalados globalmente em sua máquina.
+Certifique-se de ter o Node.js e o Angular CLI instalados globalmente.
 
 # Verificar Node.js
 node -v
@@ -23,19 +23,17 @@ node -v
 npm install -g @angular/cli
 
 1. Instalação de Dependências
-Navegue até a pasta raiz do projeto e instale as dependências.
+Navegue até a pasta raiz do projeto e execute:
 
-# Na pasta raiz do projeto Angular
 npm install
 
 2. Execução do Projeto
-Utilize o comando padrão do Angular CLI para iniciar o servidor de desenvolvimento. O aplicativo estará acessível em http://localhost:4200/.
+Utilize o comando padrão do Angular CLI. A aplicação estará disponível em http://localhost:4200/.
 
-# Inicia o servidor de desenvolvimento
 ng serve
 
 🔑 Credenciais de Acesso (Mock)
-A aplicação utiliza um serviço de autenticação de mock (simulação) para alternar entre os papéis de "Administrador" e "Usuário Comum".
+A aplicação utiliza um serviço de autenticação de mock para simular diferentes papéis de usuário.
 
 Papel
 
@@ -104,21 +102,5 @@ Informações sobre a empresa Consulthub.
 
 Qualquer rota inválida é redirecionada.
 
-📄 Componentes Organizados
-Todos os componentes principais foram organizados em arquivos separados (.ts, .html, .css) seguindo as boas práticas para facilitar a manutenção:
-
-AboutComponent
-
-ConsultantCardComponent
-
-ConsultantFormComponent
-
-ConsultantFilterComponent
-
-ConsultantsPageComponent
-
-HeaderComponent
-
-LoginComponent
-
-Agradecemos o seu tempo e análise.
+📄 Componentes Organizados (Boas Práticas)
+Todos os componentes principais estão organizados em arquivos separados (.ts, .html, .css) para facilitar a manutenção e escalabilidade.
