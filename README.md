@@ -16,91 +16,42 @@ Formulários: Reactive Forms
 Pré-requisitos
 Certifique-se de ter o Node.js e o Angular CLI instalados globalmente.
 
+Bash
+
 # Verificar Node.js
 node -v
 
 # Instalar Angular CLI (se necessário)
 npm install -g @angular/cli
-
 1. Instalação de Dependências
 Navegue até a pasta raiz do projeto e execute:
 
-npm install
+Bash
 
+npm install
 2. Execução do Projeto
 Utilize o comando padrão do Angular CLI. A aplicação estará disponível em http://localhost:4200/.
 
-ng serve
+Bash
 
+ng serve
 🔑 Credenciais de Acesso (Mock)
 A aplicação utiliza um serviço de autenticação de mock para simular diferentes papéis de usuário.
 
-Papel
+Papel	E-mail	Senha	Acesso
+Administrador	admin@empresa.com	admin123	Criação, Edição e Exclusão de Consultores.
+Usuário Comum	user@empresa.com	user123	Apenas visualização e filtro de consultores.
 
-E-mail
-
-Senha
-
-Acesso
-
-Administrador
-
-admin@empresa.com
-
-admin123
-
-Criação, Edição e Exclusão de Consultores.
-
-Usuário Comum
-
-user@empresa.com
-
-user123
-
-Apenas visualização e filtro de consultores.
-
+Exportar para as Planilhas
 🗺️ Rotas da Aplicação
-Rota
+Rota	Componente	Descrição
+/login	LoginComponent	Tela inicial de acesso.
+/consultants	ConsultantsPageComponent	Listagem e filtro de todos os consultores.
+/consultants/new	ConsultantFormComponent	Cadastro de novo consultor (Acesso Admin).
+/consultants/edit/:id	ConsultantFormComponent	Edição de consultor existente (Acesso Admin).
+/about	AboutComponent	Informações sobre a empresa Consulthub.
+/**	(Redirecionamento)	Qualquer rota inválida é redirecionada.
 
-Componente
-
-Descrição
-
-/login
-
-LoginComponent
-
-Tela inicial de acesso.
-
-/consultants
-
-ConsultantsPageComponent
-
-Listagem e filtro de todos os consultores.
-
-/consultants/new
-
-ConsultantFormComponent
-
-Cadastro de novo consultor (Acesso Admin).
-
-/consultants/edit/:id
-
-ConsultantFormComponent
-
-Edição de consultor existente (Acesso Admin).
-
-/about
-
-AboutComponent
-
-Informações sobre a empresa Consulthub.
-
-/**
-
-(Redirecionamento)
-
-Qualquer rota inválida é redirecionada.
-
+Exportar para as Planilhas
 📄 Componentes Organizados (Boas Práticas)
 Todos os componentes principais estão organizados em arquivos separados (.ts, .html, .css) para facilitar a manutenção e escalabilidade.
